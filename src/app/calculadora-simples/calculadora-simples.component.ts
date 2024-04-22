@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-calculadora-simples',
@@ -11,6 +12,8 @@ export class CalculadoraSimplesComponent {
   probability: number = 0;
   percentage = 0;
 
+  constructor(private http: HttpClient) { }
+
   calculateProbability(): void {
     if (this.value2 !== 0) {
       this.probability = this.value1 / this.value2;
@@ -18,5 +21,11 @@ export class CalculadoraSimplesComponent {
     } else {
       this.probability = 0;
     }
+  }
+
+  saveResults(value1: number, value2: number, result: string): void {
+    this.http.post('/api/insert-results', { value1, value2, result }).subscribe(response => {
+      console.log(response);
+    });
   }
 }
