@@ -10,7 +10,8 @@ export class CalculadoraSimplesComponent {
   value1: number = 0;
   value2: number = 0;
   probability: number = 0;
-  percentage = 0;
+  percentage: number = 0;
+  result: string = '';
 
   constructor(private http: HttpClient) { }
 
@@ -18,6 +19,8 @@ export class CalculadoraSimplesComponent {
     if (this.value2 !== 0) {
       this.probability = this.value1 / this.value2;
       this.percentage = this.probability * 100;
+      this.result = this.probability.toFixed(2) + ' ' + this.percentage.toFixed(2);
+      this.saveResults(this.value1, this.value2, this.result);
     } else {
       this.probability = 0;
     }
