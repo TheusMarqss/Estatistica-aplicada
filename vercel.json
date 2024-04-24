@@ -9,7 +9,7 @@
     }
   ],
   "routes": [
-    { "src": "/api/insert-results", "dest": "api/insert-results.js" },
+    { "src": "https://estatistica-aplicada-smoky.vercel.app/api/insert-results", "dest": "api/insert-results.js" },
     { "src": "/api/get-results", "dest": "api/get-results.js" },
     { "src": "/(.*)", "dest": "/$1" },
     { "src": "/", "dest": "/index.html" }
