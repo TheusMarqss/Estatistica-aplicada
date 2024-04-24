@@ -1,15 +1,8 @@
 {
   "version": 2,
   "name": "estatistica",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "dist/estatistica" }
-    }
-  ],
   "routes": [
-    { "src": "https://estatistica-aplicada-smoky.vercel.app/api/insert-results", "dest": "api/insert-results.js" },
+    { "src": "/api/insert-results", "dest": "api/insert-results.js" },
     { "src": "/api/get-results", "dest": "api/get-results.js" },
     { "src": "/(.*)", "dest": "/$1" },
     { "src": "/", "dest": "/index.html" }
