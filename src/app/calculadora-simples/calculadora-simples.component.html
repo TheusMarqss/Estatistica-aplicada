@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <p class="display-6">Calculadora de probabilidades</p>
+                <p class="display-6 mt-5">Calculadora de probabilidades</p>
                 <div>
                     <label for="value1">Número de resultados favoráveis:</label>
                     <input class="form-control" id="value1" [(ngModel)]="value1" type="number">
@@ -29,6 +29,12 @@
 
                 <p>A probabilidade é: </p>
                 <p>{{probability}} ou {{percentage | number:'1.2-2' }}%</p>
+
+                <div *ngFor="let result of resultsHistory">
+                    <p>Value 1: {{result.value1}}</p>
+                    <p>Value 2: {{result.value2}}</p>
+                    <p>Result: {{result.result}}</p>
+                </div>
             </div>
         </div>
     </div>
