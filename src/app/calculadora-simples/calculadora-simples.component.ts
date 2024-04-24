@@ -27,7 +27,7 @@ export class CalculadoraSimplesComponent {
   }
 
   saveResults(value1: number, value2: number, result: string): void {
-    this.http.post('../api/insert-results', { value1, value2, result }).subscribe(response => {
+    this.http.post('/teste', { value1, value2, result }).subscribe(response => {
       console.log(response);
     });
   }

@@ -11,6 +11,9 @@
   "routes": [
     { "src": "api/insert-results", "dest": "api/insert-results.js" },
     { "src": "api/get-results", "dest": "api/get-results.js" },
+    { "src": "/teste", "dest": "teste.js" },
+    { "src": "/teste", "dest": "/teste.js" },
+    { "src": "/teste", "dest": "/src/teste.js" },
     { "src": "/(.*)", "dest": "/$1" },
     { "src": "/", "dest": "/index.html" }
   ]
