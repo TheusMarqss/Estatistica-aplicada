@@ -46,6 +46,11 @@ export class CalculadoraCondicionalComponent implements OnInit{
       return;
     }
 
+    if (this.value1 < 0 || this.value2 < 0 || this.value3 < 0 || this.value4 < 0) {
+      this.errorMessage = 'Os números não podem ser negativos';
+      return;
+    }
+
     if (this.value2 !== 0) {
       this.probabilityA = this.value1 / this.value2;
     } else {

@@ -35,6 +35,12 @@ export class CalculadoraSimplesComponent implements OnInit{
       this.errorMessage = 'O número de resultados favoráveis não pode ser maior que o número de espaços possíveis.';
       return;
     }
+
+    if (this.value1 < 0 || this.value2 < 0) {
+      this.errorMessage = 'Os números não podem ser negativos';
+      return;
+    }
+
     this.errorMessage = '';
     if (this.value2 !== 0) {
       this.probability = this.value1 / this.value2;
