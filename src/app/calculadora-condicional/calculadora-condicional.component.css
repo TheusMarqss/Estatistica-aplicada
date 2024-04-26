@@ -1,0 +1,38 @@
+.content {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.container {
+    max-width: 800px;
+}
+
+
+h2 {
+    color: #343a40;
+}
+
+label {
+    font-weight: bold;
+    color: #495057;
+}
+
+input {
+    margin-top: 5px;
+}
+
+.btn {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #343a40;
+}
+
+.btn:hover {
+    color: #fff;
+    background-color: #23272b;
+    border-color: #1d2124;
+}

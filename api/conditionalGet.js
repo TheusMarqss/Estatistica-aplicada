@@ -10,16 +10,10 @@ module.exports = async (req, res) => {
 
   client.connect()
 
-  const { value1, value2, result } = req.body;
+  const result = await client.query('SELECT * FROM conditionalHistory')
+  const results = { 'results': (result) ? result.rows : null}
 
-  const query = {
-    text: 'INSERT INTO history(value1, value2, result) VALUES($1, $2, $3)',
-    values: [value1, value2, result],
-  }
-
-  await client.query(query)
-
-  res.json({ status: 'success' })
+  res.json(results)
 
   client.end()
 }

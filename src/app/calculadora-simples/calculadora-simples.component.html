@@ -11,30 +11,48 @@
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <p class="display-6 mt-5">Calculadora de probabilidades</p>
-                <div>
+        <div class="row justify-content-center">
+            <div class="col-md-8 content">
+                <button class="btn btn-dark" routerLink="/calculadora-condicional">Probabilidades Condicionais</button>
+                <h2 class="text-center mt-5">Calculadora de probabilidades simples</h2>
+                <div *ngIf="errorMessage" class="alert alert-danger mt-4">
+                    {{errorMessage}}
+                </div>
+                <div class="mt-4">
                     <label for="value1">Número de resultados favoráveis:</label>
                     <input class="form-control" id="value1" [(ngModel)]="value1" type="number">
                 </div>
 
-                <div>
+                <div class="mt-4">
                     <label for="value2">Número de espaços possíveis:</label>
                     <input class="form-control" id="value2" [(ngModel)]="value2" type="number">
                 </div>
 
-                <button (click)="calculateProbability()">Calcular Probabilidade</button>
 
-                <p>A probabilidade é: </p>
-                <p>{{probability}} ou {{percentage | number:'1.2-2' }}%</p>
+                <button class="btn btn-dark mt-4 mb-4" (click)="calculateProbability()">Calcular Probabilidade</button>
+                <button class="btn btn-dark ms-2" (click)="clean()">Limpar</button>
 
-                <div *ngFor="let result of resultsHistory">
-                    <p>Value 1: {{result.value1}}</p>
-                    <p>Value 2: {{result.value2}}</p>
-                    <p>Result: {{result.result}}</p>
-                </div>
+                <input class="form-control" disabled
+                    [value]="probability ? probability + ' ou ' + (percentage | number:'1.2-2') + '%' : ''">
+
+
+                <h3 class="mt-5">Histórico</h3>
+                <table class="table table-striped mt-3">
+                    <thead>
+                        <tr>
+                            <th scope="col">Resultados Favoráveis</th>
+                            <th scope="col">Espaços possíveis</th>
+                            <th scope="col">Resultado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center" *ngFor="let result of resultsHistory">
+                            <td>{{result.value1}}</td>
+                            <td>{{result.value2}}</td>
+                            <td>{{result.result}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
